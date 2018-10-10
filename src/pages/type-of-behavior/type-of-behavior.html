@@ -11,7 +11,7 @@
 		</ion-card-header>
     <ion-card-content>
 
-			<ion-list radio-group [(ngModel)]="relationship">
+			<ion-list radio-group [(ngModel)]="typeBehavior">
           <ion-item>
             <ion-label>Conducta Regulada</ion-label>
             <ion-radio value="cr" checked></ion-radio>
@@ -40,11 +40,21 @@
 	</ion-card>
 
   
-<ion-footer>
+<ion-footer >
   <ion-toolbar>
-    <button class="" ion-button icon-only (click)="backPage();">
-			<ion-icon class="icon" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
-    </button>
+    <div class="row">
+      <div class="col">
+          <button class="" ion-button icon-only (click)="backPage();">
+            <ion-icon class="icon" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+          </button>
+      </div>
+        <div class="col" style="text-align:right;">
+            <button class="" ion-button icon-only (click)="nextPage(typeBehavior,cant);">
+              <ion-icon class="icon" ios="ios-arrow-back" md="md-arrow-forward"></ion-icon>
+            </button>
+        </div>
+    </div>
+    
   </ion-toolbar>
 </ion-footer>
 
