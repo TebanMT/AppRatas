@@ -1,0 +1,12 @@
+page-type-of-behavior {
+	.background {
+		background-image: url('../assets/home.jpg');
+	}
+
+	ion-card.card {
+		box-shadow: none;
+		background: rgba(0, 0, 0, 0.5);
+		border-radius: 5px;
+	}
+
+}

@@ -1,0 +1,52 @@
+<ion-content class="background">
+	<ion-card>
+		<ion-card-header style="color:white;">
+			Ingrese tipo de conducta y numero de <br> ratas {{kindSex}}.
+		</ion-card-header>
+	</ion-card>
+
+  <ion-card>
+    <ion-card-header style="color:white;">
+			CONDUCTA
+		</ion-card-header>
+    <ion-card-content>
+
+			<ion-list radio-group [(ngModel)]="relationship">
+          <ion-item>
+            <ion-label>Conducta Regulada</ion-label>
+            <ion-radio value="cr" checked></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Conducta no Regulada</ion-label>
+            <ion-radio value="cNr"></ion-radio>
+          </ion-item>
+        </ion-list>
+
+    <ion-card-header style="color:white;">
+			CANTIDAD
+		</ion-card-header>
+
+  <ion-item>
+    <ion-label>Cantidad</ion-label>
+    <ion-select [(ngModel)]="cant">
+      <ion-option value="1">Uno</ion-option>
+      <ion-option value="2">Dos</ion-option>
+      <ion-option value="3">Tres</ion-option>
+      <ion-option value="4">Cuatro</ion-option>
+    </ion-select>
+  </ion-item>
+
+		</ion-card-content>
+	</ion-card>
+
+  
+<ion-footer>
+  <ion-toolbar>
+    <button class="" ion-button icon-only (click)="backPage();">
+			<ion-icon class="icon" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-footer>
+
+
+</ion-content>
