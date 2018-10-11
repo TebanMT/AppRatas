@@ -1,14 +1,22 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="background">
+	<ion-card>
+		<p style="color:ghostwhite; font-size: 2rem;
+		 position: center;
+		 padding-left: 65px;">Elija el sexo de las ratas</p>
+	</ion-card>
+	
+	<div class="botones">
+		<button class="botonimagen" ion-button icon-only (click)="nextPage('Hembra');">
+			<ion-icon class="icon" name="female"></ion-icon>
+		</button>
+		<button class="botonimagenMale" ion-button icon-only (click)="nextPage('Macho');">
+			<ion-icon class="icon" name="male"></ion-icon>
+		</button>
+	</div>
+	
+<ion-footer >
+  <ion-toolbar >
+    <button  class="footer" ion-button clear full color="light">Instituto de Neurobiologia UNAM. Manual</button>
+  </ion-toolbar>
+</ion-footer>
 </ion-content>

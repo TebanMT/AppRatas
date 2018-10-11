@@ -6,11 +6,21 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { OneRatPage } from '../pages/one-rat/one-rat';
+import { TwoRatPage } from '../pages/two-rat/two-rat';
+import { ThreeRatPage } from '../pages/three-rat/three-rat';
+import { FourtRatPage } from '../pages/fourt-rat/fourt-rat';
+import { TypeOfBehaviorPage } from '../pages/type-of-behavior/type-of-behavior';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    OneRatPage,
+    TwoRatPage,
+    ThreeRatPage,
+    FourtRatPage,
+    TypeOfBehaviorPage
   ],
   imports: [
     BrowserModule,
@@ -19,7 +29,12 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    OneRatPage,
+    TwoRatPage,
+    ThreeRatPage,
+    FourtRatPage,
+    TypeOfBehaviorPage
   ],
   providers: [
     StatusBar,
