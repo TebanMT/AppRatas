@@ -1,6 +1,6 @@
 page-home {
 	.background {
-		background: url('../assets/home.jpg') no-repeat center center fixed;
+		background-color: black;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -60,7 +60,7 @@ page-home {
 		line-height: .67;
 		pointer-events: none;
 	}
-	.footer{
+	.toolbar-background-md{
 		background: rgba(0, 0, 0, 0);
 	}
 	

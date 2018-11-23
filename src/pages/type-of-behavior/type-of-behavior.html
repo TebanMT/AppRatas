@@ -26,20 +26,27 @@
 			CANTIDAD
 		</ion-card-header>
 
-  <ion-item>
+  <ion-item *ngIf="typeBehavior == 'cNr'">
     <ion-label>Cantidad</ion-label>
-    <ion-select [(ngModel)]="cant">
+    <ion-select [(ngModel)]="cant" >
       <ion-option value="1">Uno</ion-option>
       <ion-option value="2">Dos</ion-option>
       <ion-option value="3">Tres</ion-option>
       <ion-option value="4">Cuatro</ion-option>
     </ion-select>
   </ion-item>
+  <ion-item *ngIf="typeBehavior == 'cr'">
+      <ion-label>Cantidad</ion-label>
+      <ion-select [(ngModel)]="cant" >
+        <ion-option value="1">Uno</ion-option>
+        <ion-option value="2">Dos</ion-option>
+      </ion-select>
+    </ion-item>
 
 		</ion-card-content>
 	</ion-card>
 
-  
+</ion-content>
 <ion-footer >
   <ion-toolbar>
     <div class="row">
@@ -57,6 +64,3 @@
     
   </ion-toolbar>
 </ion-footer>
-
-
-</ion-content>

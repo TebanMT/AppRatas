@@ -6,21 +6,29 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { OneRatPage } from '../pages/one-rat/one-rat';
-import { TwoRatPage } from '../pages/two-rat/two-rat';
-import { ThreeRatPage } from '../pages/three-rat/three-rat';
-import { FourtRatPage } from '../pages/fourt-rat/fourt-rat';
+import { ConductaNrPage } from '../pages/conducta-nr/conducta-nr';
 import { TypeOfBehaviorPage } from '../pages/type-of-behavior/type-of-behavior';
+import { RegistrySubjectsPage } from '../pages/registry-subjects/registry-subjects';
+import { StartPage } from "../pages/start/start";
+import { FinishForPage } from '../pages/finish-for/finish-for'
+import { ConductaRPage } from '../pages/conducta-r/conducta-r';
+import { ShowDataNrPage } from "../pages/show-data-nr/show-data-nr";
+import { BehaviorParametersProvider } from '../providers/behavior-parameters/behavior-parameters';
+import { SocialSharing } from  '@ionic-native/social-sharing' ;
+import { Vibration } from '@ionic-native/vibration';
+import { File } from '@ionic-native/file';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    OneRatPage,
-    TwoRatPage,
-    ThreeRatPage,
-    FourtRatPage,
-    TypeOfBehaviorPage
+    ConductaNrPage,
+    ConductaRPage,
+    TypeOfBehaviorPage,
+    RegistrySubjectsPage,
+    FinishForPage,
+    ShowDataNrPage,
+    StartPage
   ],
   imports: [
     BrowserModule,
@@ -30,16 +38,23 @@ import { TypeOfBehaviorPage } from '../pages/type-of-behavior/type-of-behavior';
   entryComponents: [
     MyApp,
     HomePage,
-    OneRatPage,
-    TwoRatPage,
-    ThreeRatPage,
-    FourtRatPage,
-    TypeOfBehaviorPage
+    ConductaNrPage,
+    ConductaRPage,
+    TypeOfBehaviorPage,
+    RegistrySubjectsPage,
+    FinishForPage,
+    ShowDataNrPage,
+    StartPage
+   
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    BehaviorParametersProvider,
+    SocialSharing,
+    Vibration,
+    File
   ]
 })
 export class AppModule {}
