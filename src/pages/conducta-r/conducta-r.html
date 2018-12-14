@@ -1,0 +1,145 @@
+<!--
+  Generated template for the FourtRatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--ion-header>
+
+  <ion-navbar>
+      <ng-container
+      *ngIf="sesionData[0].finishData[0].minutes; then showDesc; else showReloj">
+      </ng-container>
+
+      <ng-template #showDesc>
+        <ion-title *ngIf="sesionData[0].finishData[0].minutes">Conducta Regulada  {{horasDesc}}:{{minutosDesc}}:{{segundosDesc}}</ion-title>
+      </ng-template>
+      <ng-template #showReloj>
+          <ion-title >Conducta Regulada  {{horas}}:{{minutos}}:{{segundos}}</ion-title>
+      </ng-template>
+      
+    
+  </ion-navbar>
+
+</ion-header-->
+
+
+
+<ion-content >
+    <div class = "row responsive-sm" style="height: 100%;"  >
+        <div class = "col" style="background-color: rgb(0, 0, 0); padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;" *ngFor="let rat of sesionData; let i = index">
+            
+          <ng-container
+          *ngIf="(auxFinish[i] < rat.finishData[0].cantEvent) || (horasDesc >= 0); then showSesion; else finishSesion">
+          </ng-container>
+
+          
+
+          <ng-template #showSesion>
+            <h6 style="color:white">Rata: {{ rat.etiqueta }}, M: {{iMontas[i]}}, I: {{iIntromision[i]}} </h6>
+            <ion-grid style="color:white" *ngIf="rat.sex == 'Hembra'">
+              <ion-row>
+
+                  <ng-container
+                  *ngIf="rat.buttonClicked; then showEyaculacion; else showMonta">
+                  </ng-container>
+
+                <ng-template #showMonta>
+                  <ion-col>
+                    MONTA
+                    <ion-buttons style="display: flex;     margin-left: 0px;margin-right: 0px;">
+                      <button ion-button (click)="lordosis(rat,0)" (click)="monta(rat)" [disabled]="rat.disable">0</button>
+                      <button ion-button (click)="lordosis(rat,1)" (click)="monta(rat)" [disabled]="rat.disable">1</button>
+                      <button ion-button (click)="lordosis(rat,2)" (click)="monta(rat)" [disabled]="rat.disable">2</button>
+                    </ion-buttons>
+                  </ion-col>
+                </ng-template>
+
+                <ng-template #showEyaculacion>
+                    <ion-col>
+                      LORDOSIS EYAC.
+                      <ion-buttons style="display: flex;     margin-left: 0px;margin-right: 0px;">
+                        <button ion-button outline style="color:green; border-color: green" (click)="lordosisEyaculatorio(rat,0)"  >0</button>
+                        <button ion-button outline style="color:green; border-color: green" (click)="lordosisEyaculatorio(rat,1)"  >1</button>
+                        <button ion-button outline style="color:green; border-color: green" (click)="lordosisEyaculatorio(rat,2)"  >2</button>
+                      </ion-buttons>
+                    </ion-col>
+                  </ng-template >
+
+                <ion-col>
+                  INTROMISION
+                  <ion-buttons style="display: flex;     margin-left: 0px;
+                  margin-right: 0px;">
+                    <button ion-button (click)="lordosis(rat,0)" (click)="intromision(rat)" [disabled]="rat.disable">0</button>
+                    <button ion-button (click)="lordosis(rat,1)" (click)="intromision(rat)" [disabled]="rat.disable">1</button>
+                    <button ion-button (click)="lordosis(rat,2)" (click)="intromision(rat)" [disabled]="rat.disable">2</button>
+                  </ion-buttons>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+            <ion-buttons  *ngIf="rat.sex == 'Macho'" style="display: flex;">
+              <button ion-button block (click)="monta(rat)" [disabled]="rat.disable" >Monta</button>
+              <button ion-button block (click)="intromision(rat)" [disabled]="rat.disable">Intromisión</button>
+            </ion-buttons>
+
+         
+              <ion-buttons style="display: flex;">
+              <button ion-button color="secondary" block (click)="entrada(rat)" [disabled]="rat.disableE">Entrada</button>
+              <button ion-button  color="danger" block (click)="salida(rat)" [disabled]="rat.disableS">Salida</button>
+            </ion-buttons>
+         
+            
+
+            <ion-buttons style="display: flex;">
+              <button ion-button block   (click)="eyaculacion(rat)" [disabled]="rat.disable">Eyac</button>
+              <button ion-button block  outline style="color:paleturquoise; border-color: powderblue"  (click)="eliminar(rat)">Eliminar</button>
+            </ion-buttons>
+
+          </ng-template >
+          
+
+          <ng-template #finishSesion>
+              <h6 style="color:white">Rata: {{ rat.etiqueta }}, M: {{iMontas[i]}}, I: {{iIntromision[i]}} </h6>
+              <ion-grid style="color:white" *ngIf="rat.sex == 'Hembra'">
+                <ion-row>
+                  <ion-col>
+                    SESIÓN
+                    <ion-buttons style="display: flex;">
+                      <button ion-button (click)="lordosis(rat,0)" (click)="monta(rat)" [disabled]="true">0</button>
+                      <button ion-button (click)="lordosis(rat,1)" (click)="monta(rat)" [disabled]="true">1</button>
+                      <button ion-button (click)="lordosis(rat,2)" (click)="monta(rat)" [disabled]="true">2</button>
+                    </ion-buttons>
+                  </ion-col>
+                  <ion-col>
+                    TERMINADA
+                    <ion-buttons style="display: flex;">
+                      <button ion-button (click)="lordosis(rat,0)" (click)="intromision(rat)" [disabled]="true">0</button>
+                      <button ion-button (click)="lordosis(rat,1)" (click)="intromision(rat)" [disabled]="true">1</button>
+                      <button ion-button (click)="lordosis(rat,2)" (click)="intromision(rat)" [disabled]="true">2</button>
+                    </ion-buttons>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+  
+              <ion-buttons  *ngIf="rat.sex == 'Macho'">
+                <button ion-button (click)="monta(rat)" [disabled]="true" >Monta</button>
+                <button ion-button (click)="intromision(rat)" [disabled]="true">Intromisión</button>
+              </ion-buttons>
+  
+              <ion-buttons style="display: flex;">
+                  <button ion-button color="secondary" block (click)="entrada(rat)" [disabled]="true">Entrada</button>
+                  <button ion-button  color="danger" block (click)="salida(rat)" [disabled]="true">Salida</button>
+              </ion-buttons>
+  
+              <ion-buttons  style="display: flex;">
+                <button ion-button (click)="eyaculacion(rat)" [disabled]="true">Eyac</button>
+                <button ion-button (click)="eliminar(rat)" [disabled]="true">Eliminar</button>
+              </ion-buttons>
+          </ng-template>
+          
+
+        </div>
+      </div>
+
+</ion-content>

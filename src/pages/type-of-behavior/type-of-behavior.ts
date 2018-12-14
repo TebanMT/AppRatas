@@ -19,7 +19,9 @@ import { RegistrySubjectsPage } from '../registry-subjects/registry-subjects';
 })
 export class TypeOfBehaviorPage {
   public kindSex=this.navParams.get("sex");
-  public typeBehavior ; 
+  public cant=this.navParams.get("cant");
+  public typeBehavior = this.navParams.get("typeBehavior");
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
   }
@@ -36,7 +38,7 @@ export class TypeOfBehaviorPage {
       });
       alert.present();
     }else{
-      this.navCtrl.push(RegistrySubjectsPage,{"cant":cant,"typeBehavior": typeBehavior,"sex":this.kindSex});
+      this.navCtrl.push(RegistrySubjectsPage,{"data":[],"cant":cant,"typeBehavior": typeBehavior,"sex":this.kindSex});
       
     }
 
